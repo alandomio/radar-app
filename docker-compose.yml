@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  radar-app:
+    image: hub.docker.smartforge.eu/radar-app
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+
+
+# scrivi un file docker-compose per avviare l'immagine hub.docker.smartforge.eu/radar-app
+# che esponga la porta 8080 e mappi la cartella . in /app
