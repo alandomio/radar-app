@@ -67,3 +67,81 @@ func main() {
 	fmt.Println("X:", closestX)
 	fmt.Println("Y:", closestY)
 }
+
+
+
+func creaGIF()	{
+	// funzione per la generazione di un file GIF animato usando 10 file JPG indicati in un vettore di stringhe
+	// il file GIF viene salvato nella cartella corrente con il nome "animazione.gif"
+	// il tempo di visualizzazione di ogni frame è di 100 ms
+	// il loop è infinito
+	// il numero di frame è uguale al numero di elementi del vettore di stringhe
+	// il numero di cicli è uguale al numero di elementi del vettore di stringhe
+	// il numero di cicli è uguale a 0 se si vuole un loop infinito
+	// il numero di cicli è uguale a -1 se si vuole un loop infinito
+	// il numero di cicli è uguale a 1 se si vuole un loop infinito
+	// il numero di cicli è uguale a 2 se si vuole un loop infinito	
+
+	// importa il package "image" per la gestione delle immagini
+	// importa il package "image/gif" per la gestione dei file GIF
+	// importa il package "image/jpeg" per la gestione dei file JPG
+	// importa il package "os" per la gestione del sistema operativo
+	// importa il package "fmt" per la gestione dei messaggi di errore
+	// importa il package "time" per la gestione del tempo
+	// importa il package "strconv" per la gestione delle conversioni di tipo
+	// importa il package "strings" per la gestione delle stringhe
+	// importa il package "log" per la gestione dei messaggi di errore
+	// importa il package "io/ioutil" per la gestione dei file
+
+	// crea un vettore di stringhe con i nomi dei file JPG
+	var files []string
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+	files = append(files, "mappa_radar.jpg")
+
+	// crea un vettore di immagini JPG
+	var images []*image.Image
+
+	// carica le immagini JPG
+	for _, file := range files {
+		// apre il file JPG
+		reader, err := os.Open(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// decodifica il file JPG
+		image, err := jpeg.Decode(reader)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// chiude il file JPG
+		reader.Close()
+
+		// aggiunge l'immagine JPG al vettore di immagini
+		images = append(images, &image)
+	}
+
+	// crea un file GIF
+	file, err := os.Create("animazione.gif")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// chiude il file GIF
+	defer file.Close()
+	
+
+
+
+
+
+}
